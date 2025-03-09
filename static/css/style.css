@@ -1,0 +1,138 @@
+/* 🖥️ Barcha sahifalar uchun umumiy dizayn */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1, h4 {
+    font-weight: bold;
+}
+
+/* 🔵 Navbar */
+.navbar {
+    background: #007bff;
+}
+
+.navbar a {
+    color: black;
+    font-weight: bold;
+}
+
+.navbar .form-select {
+    width: 200px;
+    font-size: 14px;
+}
+
+/* 🏛️ Chap va O‘ng tomonlar (70% va 30%) */
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .col-lg-4 {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+}
+
+/* 🎯 Podskazkalar (clue) dizayni */
+.accordion-button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* 📌 Podskazka (`clue`) ning orqa foni oq bo‘lishi va to‘g‘ri chiqishi */
+.clue-text {
+    background: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* 📢 Izoh qismi maxsus uzun bo‘lmasligi uchun */
+.comments-section {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* ✍️ Yangi izoh yozish formasi */
+#commentModal .modal-content {
+    border-radius: 10px;
+}
+
+#commentModal textarea {
+    resize: none;
+}
+/* 🏛️ Chap va O‘ng tomonlar (70% va 30%) */
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .col-lg-4 {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+}
+
+/* 🎯 Podskazkalar (clue) dizayni */
+.accordion-button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Accordion tugmasining ikon rangini oq qilish */
+.accordion-button::after {
+    filter: invert(1); /* Rangi oq bo‘lishi uchun */
+}
+
+
+/* 📌 Podskazka (`clue`) ning orqa foni oq bo‘lishi */
+.clue-text {
+    background: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* 📢 Izoh qismi maxsus uzun bo‘lmasligi uchun */
+.comments-section {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* ✍️ Yangi izoh yozish formasi */
+#commentModal .modal-content {
+    border-radius: 10px;
+}
+
+#commentModal textarea {
+    resize: none;
+}
+
