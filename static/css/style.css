@@ -135,4 +135,31 @@ h1, h4 {
 #commentModal textarea {
     resize: none;
 }
+.comments-section {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.clue-text {
+    background-color: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+
+    .col-lg-4 {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+}
+
 

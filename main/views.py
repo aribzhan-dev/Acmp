@@ -24,8 +24,20 @@ TRANSLATIONS = {
         'new_comment': '✍️ Жаңа пікір',
         'write_comment': 'Пікіріңізді жазыңыз...',
         'send': 'Жіберу'
+    },
+    'uz': {
+        'site_title': 'Misollar platformasi',
+        'choose_language': 'Tilni tanlang',
+        'clue': '🧐 Yordam',
+        'solution': 'Misolning javobi',
+        'user_comments': '📢 Foydalanuvchilar izohlari',
+        'leave_comment': '✍️ Izoh qoldirish',
+        'new_comment': '✍️ Yangi izoh',
+        'write_comment': 'Izohingizni yozing...',
+        'send': 'Yuborish'
     }
 }
+
 
 
 def indexHandler(request):
