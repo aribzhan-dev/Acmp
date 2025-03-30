@@ -49,6 +49,14 @@ class Comment(models.Model):
         return self.advice
     
 
+class Trans(models.Model):
+    key = models.CharField(max_length=100)  # masalan: 'choose_language', 'send' va h.k.
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    value = models.TextField()  # Tarjima matni
+    position = models.IntegerField(default=0)  # Keyinchalik sort qilish uchun
+
+    def __str__(self):
+        return f"{self.key} ({self.language.code})"
 
 
 

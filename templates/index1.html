@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ selected_lang_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +17,21 @@
             <select name="lang" class="form-select me-2" onchange="window.location.href='?lang='+this.value;">
                 <option value="">{{ translations.choose_language }}</option>
                 {% for lang in language %}
-                <option value="{{ lang.id }}" {% if lang.id|stringformat:"s" == selected_lang_id %}selected{% endif %}>{{ lang.title }}</option>
+                <option value="{{ lang.id }}" {% if lang.id|stringformat:"s" == selected_lang_id %}selected{% endif %}>
+                    {{ lang.title }}
+                </option>
                 {% endfor %}
             </select>
         </form>
     </div>
 </nav>
 
+<!-- 📄 Kontent -->
 <div class="container mt-4">
     <div class="row">
         <!-- 🔹 Chap taraf (70%) -->
         <div class="col-lg-8 col-md-7">
-            <!-- Misol matni -->
+            <!-- Misol -->
             <div class="card p-4">
                 <h1 class="text-center text-success">{{ task.title }}</h1>
                 <h4 class="text-center">{{ task.question|safe }}</h4>
@@ -56,7 +59,7 @@
                 {% endfor %}
             </div>
 
-            <!-- Misolning javobi -->
+            <!-- Javob -->
             <div class="accordion mt-4" id="solutionAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSolution">
@@ -76,9 +79,9 @@
             </div>
         </div>
 
-        <!-- 🔹 O'ng taraf (30%) -->
+        <!-- 🔹 O‘ng taraf (30%) -->
         <div class="col-lg-4 col-md-5">
-            <!-- Komment yozish formasi -->
+            <!-- Izoh yozish -->
             <div class="card mb-4">
                 <div class="card-header bg-success text-white">
                     {{ translations.new_comment }}
@@ -87,15 +90,14 @@
                     <form method="post">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <textarea class="form-control" name="advice" rows="3"
-                                      placeholder="{{ translations.write_comment }}"></textarea>
+                            <textarea class="form-control" name="advice" rows="3" placeholder="{{ translations.write_comment }}"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">{{ translations.send }}</button>
                     </form>
                 </div>
             </div>
 
-            <!-- Kommentlar -->
+            <!-- Izohlar ro‘yxati -->
             <div class="card">
                 <div class="card-header bg-primary text-white">
                     {{ translations.user_comments }}
@@ -112,8 +114,7 @@
     </div>
 </div>
 
-
-
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
