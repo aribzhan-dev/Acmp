@@ -1,0 +1,41 @@
+
+# Python asosiy
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Django secret fayllar
+*.sqlite3
+*.log
+*.pot
+*.mo
+*.py~
+
+# Media fayllar (upload qilingan)
+media/
+staticfiles/
+static_root/
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.VENV/
+
+# OS va IDE fayllar
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+
+
+# migrations (ixtiyoriy, agar bazadan tozalab saqlasangiz)
+**/migrations/*.py
+**/migrations/*.pyc
+!*/migrations/__init__.py
+
+
