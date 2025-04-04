@@ -37,5 +37,10 @@ Thumbs.db
 **/migrations/*.py
 **/migrations/*.pyc
 !*/migrations/__init__.py
+main/migrations/*
+
+
+Acmp/settings.py
+settings.py
 
 
