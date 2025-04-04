@@ -20,6 +20,7 @@ class Tasks(models.Model):
     solution = RichTextField(blank=True)
     index_id = models.IntegerField(default=0)
     status = models.IntegerField(default=0)
+    video_url = models.CharField(max_length=200, blank=True)
 
 
     def __str__(self):

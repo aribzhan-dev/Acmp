@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ translations.site_title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
 <!-- 🔵 Til tanlash menyusi -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">{{ translations.site_title }}</a>
+        <a class="navbar-brand" href="#">
+            <img src="/static/img/logo.png" alt="Site Logo" class="img-fluid" style="max-width: 200px; height: auto;">
+            {{ translations.site_title }}
+        </a>
         <form method="get" class="d-flex">
             <select name="lang" class="form-select me-2" onchange="this.form.submit()">
                 <option value="">{{ translations.choose_language }}</option>
@@ -42,6 +46,31 @@
         {% endfor %}
     </ul>
 </div>
+
+<!-- Footer -->
+<footer class="bg-light py-3 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{{ translations.authors }}</h5>
+                <ul class="list-unstyled">
+                    <li>Эгамбердиев Рахманберди Октамбаевич</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>{{ translations.contact }}</h5>
+                <ul class="list-unstyled">
+                    <li>{{ translations.email }}: <a href="mailto:rrohmoncom@mail.ru">rrohmoncom@mail.ru</a></li>
+                    <li>{{ translations.phone }}: +7 702 139 4402</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <!-- Rasmni qo'yish -->
+                <img src="/static/img/qr.jpeg" alt="Footer Image">
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

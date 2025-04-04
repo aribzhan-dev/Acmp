@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ task.title }}</title>
+    <title>{{ translations.site_title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+    // JavaScript kodini qidiruv natijalarini Google orqali yuborish uchun
+        function searchGoogle() {
+            var query = document.getElementById("searchInput").value; // Inputdagi qidiruv matnini olish
+            if(query) {
+                window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query); // Google'da qidiruv
+            }
+        }
+    </script>
 </head>
 <body>
 
-<!-- 🔵 Tilni tanlash menyusi -->
+<!-- 🔵 Til tanlash menyusi -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/index/?lang={{ selected_lang_id }}">{{ translations.site_title }}</a>
+        <a class="navbar-brand" href="/">
+            <img src="/static/img/logo.png" alt="Site Logo" class="img-fluid" style="max-width: 200px; height: auto;">
+            {{ translations.site_title }}
+        </a>
         <form method="get" class="d-flex">
-            <select name="lang" class="form-select me-2" onchange="window.location.href='?lang='+this.value;">
+            <select name="lang" class="form-select me-2" onchange="this.form.submit()">
                 <option value="">{{ translations.choose_language }}</option>
                 {% for lang in language %}
-                <option value="{{ lang.id }}" {% if lang.id|stringformat:"s" == selected_lang_id %}selected{% endif %}>
-                    {{ lang.title }}
-                </option>
+                    <option value="{{ lang.id }}" {% if lang.id|stringformat:"s" == selected_lang_id %}selected{% endif %}>
+                        {{ lang.title }}
+                    </option>
                 {% endfor %}
             </select>
         </form>
@@ -59,7 +71,7 @@
                 {% endfor %}
             </div>
 
-            <!-- Javob -->
+            <!-- Misolning javobi -->
             <div class="accordion mt-4" id="solutionAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingSolution">
@@ -77,6 +89,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Video - Misolning javobi va Poiskavik o'rtasida joylashadi -->
+            {% if task.video_url %}
+            <div class="accordion mt-4" id="videoAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingVideo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseVideo" aria-expanded="false" aria-controls="collapseVideo">
+                            🎥 {{ translations.video }}
+                        </button>
+                    </h2>
+                    <div id="collapseVideo" class="accordion-collapse collapse" aria-labelledby="headingVideo" data-bs-parent="#videoAccordion">
+                        <div class="accordion-body">
+                            <video width="100%" height="auto" controls autoplay>
+                                <source src="{{ task.video_url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Poiskavik (qidiruv formasi) -->
+            <div class="mt-4">
+               <form onsubmit="event.preventDefault(); searchGoogle();">
+                    <input type="text" id="searchInput" name="search" class="form-control" placeholder="{{ translations.search_placeholder }}" />
+                    <button type="submit" class="btn btn-primary mt-2 w-100">{{ translations.search }}</button>
+               </form>
+            </div>
+
         </div>
 
         <!-- 🔹 O‘ng taraf (30%) -->
@@ -114,7 +157,31 @@
     </div>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- Footer -->
+<footer class="bg-light py-3 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h5>{{ translations.authors }}</h5>
+                <ul class="list-unstyled">
+                    <li>Эгамбердиев Рахманберди Октамбаевич</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>{{ translations.contact }}</h5>
+                <ul class="list-unstyled">
+                    <li>{{ translations.email }}: <a href="mailto:rrohmoncom@mail.ru">rrohmoncom@mail.ru</a></li>
+                    <li>{{ translations.phone }}: +7 702 139 4402</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <!-- Rasmni qo'yish -->
+                <img src="/static/img/qr.jpeg" alt="Footer Image" class="img-fluid" style="max-width: 150px; height: auto;">
+            </div>
+        </div>
+    </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

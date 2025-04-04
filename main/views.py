@@ -42,7 +42,7 @@ def index1Handler(request, index_id):
         new_comment.advice = request.POST.get('advice', '')
         new_comment.index_id = index_id
         new_comment.save()
-        return redirect(f'/index/{index_id}/?lang={selected_lang_id}')
+        return redirect(f'/{index_id}/?lang={selected_lang_id}')
 
     # Task, Clue va Kommentlarni olish
     task = Tasks.objects.get(id=int(index_id))
